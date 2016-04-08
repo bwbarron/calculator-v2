@@ -105,11 +105,11 @@ func subtractPts(p1 : Cartesian, p2 : Cartesian) -> Cartesian {
     return (p1.0 - p2.0, p1.1 - p2.1)
 }
 
-func addPoints(p1 : [Int : Int], p2 : [Int : Int]) -> [Int : Int] {
-    let point1 = (validate(p1.keys.first), validate(p1.values.first))
-    let point2 = (validate(p2.keys.first), validate(p2.values.first))
+func addPoints(p1 : [String : Int], p2 : [String : Int]) -> [String : Int] {
+    let point1 = (validate(p1["x"]), validate(p1["y"]))
+    let point2 = (validate(p2["x"]), validate(p2["y"]))
     
-    return [point1.0 + point2.0 : point1.1 + point2.1]
+    return ["x" : point1.0 + point2.0, "y" : point1.1 + point2.1]
 }
 
 func validate(input : Int?) -> Int {
@@ -127,8 +127,8 @@ print(addPoints((0, 0), p2: (1, 1)))
 print(subtractPts((1, 1), p2: (1, 1)))
 print(subtractPts((0, 10), p2: (1, 1)))
 
-print(addPoints([1 : 1], p2: [1 : 1]))
-print(addPoints([0 : 1], p2: [1 : 100]))
+print(addPoints(["X" : 1, "y" : 1], p2: ["x" : 1, "y" : 1]))
+print(addPoints(["x" : 0, "y" : 1], p2: ["x" : 1, "y" : 100]))
 
 
 
